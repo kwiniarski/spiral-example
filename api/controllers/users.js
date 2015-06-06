@@ -32,7 +32,7 @@ module.exports = {
         id: id
       }
     }).then(function(){
-      return spiral.models.users.find(id);
+      return spiral.models.users.findById(id);
     }).then(res.ok);
   }
 };
