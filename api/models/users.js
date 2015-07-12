@@ -24,11 +24,15 @@ module.exports = function (sequelize, Sequelize) {
     }
   }, {
     classMethods: {
-      associate: function(models) {
-        user.belongsToMany(models.roles, {
-          through: 'user_roles'
-        });
-      }
+      associations: [
+        {
+          type: 'belongsToMany',
+          model: 'roles',
+          options: {
+            through: 'user_roles'
+          }
+        }
+      ]
     }
   });
 

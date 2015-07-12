@@ -14,11 +14,15 @@ module.exports = function (sequelize, Sequelize) {
     name: Sequelize.STRING
   }, {
     classMethods: {
-      associate: function(models) {
-        roles.belongsToMany(models.users, {
-          through: 'user_roles'
-        });
-      }
+      associations: [
+        {
+          type: 'belongsToMany',
+          model: 'users',
+          options: {
+            through: 'user_roles'
+          }
+        }
+      ]
     }
   });
 
