@@ -6,11 +6,13 @@
 
 'use strict';
 
+var E = process.env;
+
 module.exports = {
   connection: {
-    database: 'test_spiral',
-    user: process.env.DATABASE_MYSQL_USERNAME || process.env.USER,
-    password: process.env.DATABASE_MYSQL_PASSWORD || ''
+    database: E.DATABASE_NAME_TEST || 'test_spiral',
+    user: E.DATABASE_USERNAME || E.USER,
+    password: E.DATABASE_PASSWORD || ''
   },
   options: {
     dialect: 'mysql',
